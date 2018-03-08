@@ -1,0 +1,21 @@
+{
+  "name": "papua-prototype",
+  "version": "0.0.1",
+  "description": "Visualization on Papua and West Papua Unlawful Killing Cases",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "light-server -s . -p 3000",
+	"sass": "cd stylesheets && sass --watch scss:css --style compressed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahdanahmad/papua-prototype.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mahdanahmad/papua-prototype/issues"
+  },
+  "homepage": "https://github.com/mahdanahmad/papua-prototype#readme"
+}
