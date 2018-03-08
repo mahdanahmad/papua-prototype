@@ -1,0 +1,11 @@
+svg#bar-viz {
+	#y-axis {
+		text { fill: white; }
+		path.domain { stroke: none; }
+	}
+	.group-bar {
+		.bar { fill: $bar-default; }
+		.overlay { fill: transparent; }
+		&.active { .bar { fill: $bar-hovered; }}
+	}
+}

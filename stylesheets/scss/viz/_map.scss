@@ -1,4 +1,14 @@
 svg#map-viz {
 	rect#background { fill: none; pointer-events: all; }
-	.kabupaten { stroke: $default-back; fill: #b0b1b5; }
+	.kabupaten { stroke: $default-back; }
+
+	$colors	: #fff7a8 #a1a68d #7a8482 #b0b1b5;
+	@each $color in $colors {
+		$i: index($colors, $color);
+		.color-#{$i} { fill: $color; &:before { background-color: $color; }}
+	}
+	#legend-wrapper, #view-wrapper {
+		text { fill: white; }
+		rect#option-select { rx: 4; fill-opacity: .5; }
+	}
 }
