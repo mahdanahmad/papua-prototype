@@ -1,6 +1,8 @@
 @import "statics";
 @import "mixins";
 
+@import "viz/map";
+
 a { cursor: pointer; text-decoration: none; color: black; }
 ul { list-style-type: none; margin: 0px; padding: 0px; }
 img { max-width: 100%; height: auto; }
@@ -29,4 +31,7 @@ html, body, body > div#root {
 }
 div#root {
     background: $default-back; position: relative;
+	& > div { height: 100%; display: inline-block; float: left; }
+	#bar-wrapper { width: 25%; }
+	#map-wrapper { width: 75%; }
 }
