@@ -2,7 +2,8 @@ svg#map-viz {
 	rect#background { fill: none; pointer-events: all; }
 	.kabupaten { stroke: $default-back; }
 
-	$colors	: #fff7a8 #a1a68d #7a8482 #b0b1b5;
+	// $colors	: #fff7a8 #a1a68d #7a8482 #b0b1b5;
+	$colors	: #ca4c2c #e96d21 #ed981b #C5C5C5;
 	@each $color in $colors {
 		$i: index($colors, $color);
 		.color-#{$i} { fill: $color; &:before { background-color: $color; }}

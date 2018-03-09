@@ -66,7 +66,7 @@ function createMap() {
 
 	let legendGroup	= svg.append('g')
 		.attr('id', 'legend-wrapper')
-		.attr('transform', 'translate(' + (margin.left + legend_bot) + ',' + (height - legend_bot) + ')')
+		.attr('transform', 'translate(' + (margin.left + legend_bot + (width * .12)) + ',' + (height - legend_bot) + ')')
 		.selectAll('.legend-group')
 		.data(legend).enter().append('g')
 			.attr('class', 'legend-group')
