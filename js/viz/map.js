@@ -39,18 +39,37 @@ function createMap() {
 		.attr('height', height)
 		// .on('click', () => { zoomProv(null) });
 
-	d3.json('public/json/papua.geojson', (err, kabs) => {
-		if (err) return console.error(err);
+	// d3.json('public/json/papua.geojson', (err, kabs) => {
+	// 	if (err) return console.error(err);
+	//
+	// 	svg.selectAll('path.kabupaten').data(kabs.features).enter().append('path')
+	// 		.attr("id", (o) => ('kab-' + (o.properties.id_kabkota)))
+	// 		.attr('d', path)
+	// 		.attr('class', (o) => ('kabupaten color-4'))
+	// 		.attr('vector-effect', 'non-scaling-stroke')
+	// 		.on('click', onClick)
+	// 		.on('mouseover', onMouseover)
+	// 		.on('mouseout', onMouseout)
+	// 		.on('mousemove', (o) => { hoverHandler(o.properties.id_kabkota) });
+	// });
+
+	d3.json('public/json/papua.json', (err, raw) => {
+		let kabs	= topojson.feature(raw, raw.objects.PA_wilayah_kabupaten);
 
 		svg.selectAll('path.kabupaten').data(kabs.features).enter().append('path')
-			.attr("id", (o) => ('kab-' + (o.properties.id_kabkota)))
+			.attr('id', (o) => (o.id))
 			.attr('d', path)
 			.attr('class', (o) => ('kabupaten color-4'))
 			.attr('vector-effect', 'non-scaling-stroke')
-			.on('click', onClick)
-			.on('mouseover', onMouseover)
-			.on('mouseout', onMouseout)
-			.on('mousemove', (o) => { hoverHandler(o.properties.id_kabkota) });
+
+		let centroids	= _.chain(kabs.features).sortBy('id').map((o) => (path.centroid(o))).value();
+
+		svg.selectAll('text.id').data(centroids).enter().append('text')
+			.attr('x', (o) => (o[0]))
+			.attr('y', (o) => (o[1]))
+			.style('fill', 'white')
+			.text((o, key) => (key + 1));
+
 	});
 
 	function onClick(o) {  }
