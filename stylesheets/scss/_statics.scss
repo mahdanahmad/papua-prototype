@@ -1,4 +1,9 @@
-$def-font-stack : 'Open Sans', sans-serif;
+@font-face {
+    font-family: "TG Light";
+    src: url("../../public/fonts/AmnestyTradeGothic-Light.ttf");
+}
+
+$def-font-stack : 'TG Light', sans-serif;
 $default-back   : #525254;
-$bar-default	: #a1a68d;
-$bar-hovered	: #fff7a8;
+$bar-default	: #FFFF00;
+$bar-hovered	: #FFFF00;
